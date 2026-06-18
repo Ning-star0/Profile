@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: #fffefb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: #18191f;
+  background:
+    radial-gradient(circle at 12% 5%, rgba(228, 226, 210, 0.52), transparent 30%),
+    radial-gradient(circle at 82% 28%, rgba(166, 189, 84, 0.18), transparent 26%),
+    linear-gradient(180deg, #fffefb 0%, #fbfaf5 62%, #f4f2ea 100%);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: rgba(159, 189, 49, 0.32);
+}
+
+.hero-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.28;
+  mix-blend-mode: multiply;
+  background-image:
+    linear-gradient(rgba(60, 50, 35, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(60, 50, 35, 0.035) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(to bottom, black, transparent 72%);
+}
+
+.glass-panel {
+  border: 1px solid rgba(92, 99, 75, 0.14);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.44)),
+    radial-gradient(circle at 20% 12%, rgba(159, 189, 49, 0.12), transparent 34%);
+  box-shadow: 0 22px 70px rgba(70, 77, 55, 0.12);
+  backdrop-filter: blur(20px);
+}
+
+.fine-rule {
+  background: linear-gradient(90deg, #68784a, rgba(104, 120, 74, 0));
+}
+
+.shine-button::before {
+  content: "";
+  position: absolute;
+  inset: -40% auto -40% -55%;
+  width: 42%;
+  transform: skewX(-20deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.34),
+    transparent
+  );
+  transition: transform 0.7s ease;
+}
+
+.shine-button:hover::before {
+  transform: translateX(410%) skewX(-20deg);
+}
+
+.tree-wrap {
+  touch-action: pan-y;
+}
+
+.growth-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  font-size: 22px;
+  pointer-events: none;
+  transform-origin: center bottom;
+  filter: drop-shadow(0 7px 13px rgba(95, 122, 34, 0.24));
+}
+
+.growth-item::before,
+.growth-item::after {
+  content: "";
+  position: absolute;
+  display: block;
+}
+
+.growth-leaf::before {
+  width: 1em;
+  height: 0.52em;
+  left: 0.28em;
+  top: 0.08em;
+  border-radius: 100% 0 100% 0;
+  background: linear-gradient(135deg, #b8d944 0%, #6f9c2c 62%, #4f7227 100%);
+  transform: rotate(-28deg);
+}
+
+.growth-leaf::after {
+  width: 0.7em;
+  height: 0.08em;
+  left: -0.15em;
+  top: 0.7em;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(79, 95, 43, 0), rgba(79, 95, 43, 0.8));
+  transform: rotate(-45deg);
+}
+
+.growth-sprout::before {
+  width: 0.11em;
+  height: 1.08em;
+  left: 0.52em;
+  top: 0.18em;
+  border-radius: 999px;
+  background: linear-gradient(#6f8f2e, #4f5f2b);
+  transform: rotate(8deg);
+}
+
+.growth-sprout::after {
+  width: 0.56em;
+  height: 0.56em;
+  left: 0.5em;
+  top: 0.03em;
+  border-radius: 100% 0 100% 0;
+  background: linear-gradient(135deg, #c6e86f, #7fb13d 70%);
+  transform: rotate(20deg);
+  box-shadow: -0.5em 0.27em 0 -0.12em rgba(159, 189, 49, 0.9);
+}
+
+.growth-moss {
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 35%, rgba(218, 244, 112, 0.95), transparent 18%),
+    radial-gradient(circle at 58% 54%, rgba(111, 143, 46, 0.88), transparent 22%),
+    radial-gradient(circle at 74% 28%, rgba(130, 171, 46, 0.82), transparent 16%),
+    radial-gradient(circle at 44% 76%, rgba(72, 99, 39, 0.84), transparent 22%);
+  filter: blur(0.2px) drop-shadow(0 0 15px rgba(145, 190, 49, 0.34));
+}
+
+.soft-scroll-indicator {
+  animation: scrollPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.52;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .tree-wrap {
+    bottom: 16.5rem;
+    min-height: 300px;
+    height: 34vh;
+    opacity: 0.92;
+  }
+
+  .growth-item {
+    font-size: 18px;
+  }
+}
